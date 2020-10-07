@@ -1,5 +1,5 @@
 import {Module} from "@nestjs/common";
-import {TextListenerController} from "./text-listener.controller";
+import {TextListenerController} from "./controller/text-listener.controller";
 
 @Module({
     controllers: [TextListenerController]

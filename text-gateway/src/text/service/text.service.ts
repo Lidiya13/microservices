@@ -1,7 +1,8 @@
 import {Inject, Injectable, Logger, OnApplicationBootstrap} from '@nestjs/common';
 import {ClientProxy} from "@nestjs/microservices";
-import {TEXT_LISTENER_SERVICE} from "./text.constants";
-import {TextListenerEvent} from "./constant/text-listener.event";
+import {TEXT_LISTENER_SERVICE} from "../constant/text.constants";
+import {TextListenerEvent} from "../constant/text-listener.event";
+import {TextMessageDto} from "../dto/text-message.dto";
 
 @Injectable()
 export class TextService implements OnApplicationBootstrap {
@@ -17,6 +18,15 @@ export class TextService implements OnApplicationBootstrap {
         this.client.emit(TextListenerEvent.ON_GET_TEXT, {message: 'lol kek'})
         return 'Hello World printed';
     }
+
+    /* async createMessage(message: TextMessageDto){
+          const textMessage=await this.create(message);
+    }*/
+
+    /*async createDog(dog: DogCreateDto){
+        const dog2=await this.dogRepository.create(dog);
+        await this.dogRepository.save(dog2);
+    }*/
 
     async onApplicationBootstrap(): Promise<void> {
         await this.client.connect();

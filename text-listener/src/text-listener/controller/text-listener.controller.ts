@@ -1,7 +1,7 @@
 import {Controller, Logger} from "@nestjs/common";
 import {EventPattern} from "@nestjs/microservices";
-import {TextListenerEvent} from "./constant/text-listener.event";
-import {TextListenerParam} from "./interface/TextListenerParam";
+import {TextListenerEvent} from "../constant/text-listener.event";
+import {TextListenerParam} from "../interface/TextListenerParam";
 
 @Controller()
 export class TextListenerController {
