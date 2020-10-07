@@ -1,0 +1,14 @@
+# compiled output
+.idea
+
+text-gateway/dist
+text-gateway/node_modules
+
+text-listener/dist
+text-listener/node_modules
+
+text-calc/dist
+text-calc/node_modules
+
+text-statistic/dist
+text-statistic/node_modules
