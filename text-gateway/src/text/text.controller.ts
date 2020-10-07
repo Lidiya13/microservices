@@ -9,7 +9,6 @@ export class TextController {
 
     @Get()
     getHello(): string {
-        // this.client.emit<string>('message_printed', new Message('Hello World'));
         return this.textService.getHello();
     }
 }

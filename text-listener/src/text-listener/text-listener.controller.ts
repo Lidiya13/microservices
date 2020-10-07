@@ -11,6 +11,5 @@ export class TextListenerController {
     getText(data: TextListenerParam): void {
         this.logger.log(`Incoming request text listener from event ${TextListenerEvent.ON_GET_TEXT} with data:`);
         this.logger.debug(data);
-        //
     }
 }
