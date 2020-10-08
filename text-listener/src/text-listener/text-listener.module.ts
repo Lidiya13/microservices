@@ -1,8 +1,8 @@
 import {Module} from "@nestjs/common";
-import {TextListenerController} from "./controller/text-listener.controller";
 import {ClientsModule, Transport} from "@nestjs/microservices";
-import {TextListenerService} from "./service/text-listener.service";
 import {TEXT_CALC_SERVICE} from "./constant/text.constants";
+import {TextListenerController} from "./controller/text-listener.controller";
+import {TextListenerService} from "./service/text-listener.service";
 
 @Module({
     imports: [
