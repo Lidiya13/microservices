@@ -1,0 +1,1 @@
+export const TEXT_CALC_SERVICE = 'TEXT_CALC_SERVICE';

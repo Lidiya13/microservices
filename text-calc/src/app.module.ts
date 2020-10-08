@@ -1,6 +1,8 @@
-import { Module } from '@nestjs/common';
+import {Module} from '@nestjs/common';
+import {TextCalcModule} from "./text-calc/text-calc.module";
 
 @Module({
-  imports: []
+    imports: [TextCalcModule]
 })
-export class AppModule {}
+export class AppModule {
+}

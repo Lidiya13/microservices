@@ -1,4 +1,4 @@
-import {Controller, Get, Post} from "@nestjs/common";
+import {Body, Controller, Get, Post} from "@nestjs/common";
 import {TextService} from "../service/text.service";
 import {TextMessageDto} from "../dto/text-message.dto";
 
@@ -13,14 +13,9 @@ export class TextController {
         return this.textService.getHello();
     }
 
-    /*@Post()
-    async createTextMessage(@Body() textMessageDto: TextMessageDto): Promise<void>{
-        return this.textService.createMessage('uii');
-    }*/
-
-    /*@Post()
-    async create (@Body() dogCreateDto: DogCreateDto):Promise<TextMessageDto>{
-        await this.dogService.createDog(dogCreateDto);
-        return new MessageDto('Данные внесены');
-    }*/
+    @Post()
+    async createTextMessage(@Body() textMessageDto: TextMessageDto): Promise<{ message: string }> {
+        await this.textService.createMessage(textMessageDto);
+        return {message: 'Hello World printed'}
+    }
 }

@@ -19,14 +19,9 @@ export class TextService implements OnApplicationBootstrap {
         return 'Hello World printed';
     }
 
-    /* async createMessage(message: TextMessageDto){
-          const textMessage=await this.create(message);
-    }*/
-
-    /*async createDog(dog: DogCreateDto){
-        const dog2=await this.dogRepository.create(dog);
-        await this.dogRepository.save(dog2);
-    }*/
+    async createMessage(message: TextMessageDto): Promise<void> {
+        const textMessage = await this.client.emit(TextListenerEvent.ON_POST_TEXT, message);
+    }
 
     async onApplicationBootstrap(): Promise<void> {
         await this.client.connect();

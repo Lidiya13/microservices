@@ -12,4 +12,10 @@ export class TextListenerController {
         this.logger.log(`Incoming request text listener from event ${TextListenerEvent.ON_GET_TEXT} with data:`);
         this.logger.debug(data);
     }
+
+    @EventPattern(TextListenerEvent.ON_POST_TEXT)
+    postText(data: TextListenerParam): void {
+        this.logger.log(`Incoming request text listener from event ${TextListenerEvent.ON_POST_TEXT} with data:`);
+        this.logger.debug(data);
+    }
 }

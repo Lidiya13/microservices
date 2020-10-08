@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
+import {TextStatisticModule} from "./text-statistic/text-statistic.module";
 
 @Module({
-  imports: []
+  imports: [TextStatisticModule]
 })
 export class AppModule {}
