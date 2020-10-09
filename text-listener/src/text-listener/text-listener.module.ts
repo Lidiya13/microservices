@@ -11,7 +11,7 @@ import {TextListenerService} from "./service/text-listener.service";
                 name: TEXT_CALC_SERVICE,
                 transport: Transport.REDIS,
                 options: {
-                    url: 'redis://localhost:7878'
+                    url: 'redis://localhost:5002'
                 }
             }]),
     ],

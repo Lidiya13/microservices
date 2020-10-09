@@ -11,7 +11,7 @@ import {TextCalcService} from "./service/text-calc.service";
                 name: TEXT_STATISTIC_SERVICE,
                 transport: Transport.REDIS,
                 options: {
-                    url: 'redis://localhost:7878'
+                    url: 'redis://localhost:5002'
                 }
             }])
     ],

@@ -2,9 +2,7 @@ import {Module} from '@nestjs/common';
 import {TextModule} from "./text/text.module";
 
 @Module({
-    imports: [
-        TextModule
-    ]
+    imports: [TextModule]
 })
 export class AppModule {
 }

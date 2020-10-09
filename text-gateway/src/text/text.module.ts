@@ -6,13 +6,14 @@ import {TEXT_LISTENER_SERVICE} from "./constant/text.constants";
 
 @Module({
     imports: [
-        ClientsModule.register([{
-            name: TEXT_LISTENER_SERVICE,
-            transport: Transport.TCP,
-            options: {
-                port: 7878
-            }
-        }]),
+        ClientsModule.register([
+            {
+                name: TEXT_LISTENER_SERVICE,
+                transport: Transport.TCP,
+                options: {
+                    port: 7878
+                }
+            }])
     ],
     providers: [TextService],
     controllers: [TextController]

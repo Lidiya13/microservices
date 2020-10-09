@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+
+  server:
+    image: redis
+    container_name: redis-db
+    ports:
+      - "5002:6379"
