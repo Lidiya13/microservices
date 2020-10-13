@@ -6,7 +6,7 @@ import {TextListenerEvent} from "../constant/text-listener.event";
 
 @Injectable()
 export class TextListenerService implements OnApplicationBootstrap {
-    private readonly logger = new Logger(TextListenerService.name)
+    private readonly logger = new Logger(TextListenerService.name);
 
     constructor(
         @Inject(TEXT_CALC_SERVICE)

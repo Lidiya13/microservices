@@ -1,4 +1,4 @@
-export interface TextStatisticParam {
+export class TextStaticticCreateDto{
     message: string;
     length: number;
 }

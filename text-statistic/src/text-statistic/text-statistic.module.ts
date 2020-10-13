@@ -5,9 +5,16 @@ import {MongooseModule} from "@nestjs/mongoose";
 import {Text, TextStatisticSchema} from "./schemas/text-statistic.schema";
 
 @Module({
-imports:[MongooseModule.forFeature([{name: Text.name, schema: TextStatisticSchema}])],
-    controllers:[TextStatisticController],
-    providers:[TextStatisticService]
+    imports: [
+        MongooseModule.forFeature([
+            {
+                name: Text.name,
+                schema: TextStatisticSchema
+            }]),
+
+    ],
+    controllers: [TextStatisticController],
+    providers: [TextStatisticService]
 })
 export class TextStatisticModule {
 }
