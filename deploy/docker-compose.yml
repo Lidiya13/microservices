@@ -1,9 +1,14 @@
 version: '3.8'
 
 services:
-
   server:
     image: redis
     container_name: redis-db
     ports:
       - "5002:6379"
+  mongodb:
+    image: mongo:latest
+    environment:
+      - MONGODB_DATABASE="test"
+    ports:
+      - 27017:27017
