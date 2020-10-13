@@ -24,9 +24,4 @@ export class TextCalcService implements OnApplicationBootstrap {
         console.log(length);
         this.client.emit(TextCalcEvent.ON_SEND_CALCULATE_RESULT, {message: data.message, length});
     }
-
-/*    sendDataToStatistic(data: DataParam): void {
-        this.client.emit(TextCalcEvent.ON_SEND_DATA, data);
-        this.logger.log('Data published');
-    }*/
 }
