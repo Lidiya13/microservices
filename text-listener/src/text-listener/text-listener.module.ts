@@ -13,7 +13,8 @@ import {TextListenerService} from "./service/text-listener.service";
                 options: {
                     url: 'redis://localhost:5002'
                 }
-            }
+            },
+
         ]),
     ],
     controllers: [TextListenerController],

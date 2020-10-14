@@ -1,3 +1,4 @@
 export enum TextStatisticEvent {
     ON_SEND_CALCULATE_RESULT = '_ON_SEND_CALCULATE_RESULT',
+    ON_SEND_DATA_FROM_STAT = '_ON_SEND_DATA_FROM_STAT'
 }

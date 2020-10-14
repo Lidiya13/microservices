@@ -19,7 +19,7 @@ export class TextCalcService implements OnApplicationBootstrap {
         this.logger.log(`Success connect to ${TEXT_STATISTIC_SERVICE}`)
     }
 
-    calculateMessageLength(data: TextCalcParam) {
+    calculateMessageLength(data: TextCalcParam): void {
         const length = data.message.length;
         console.log(length);
         this.client.emit(TextCalcEvent.ON_SEND_CALCULATE_RESULT, {message: data.message, length});

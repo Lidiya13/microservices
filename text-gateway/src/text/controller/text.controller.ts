@@ -1,6 +1,7 @@
-import {Body, Controller, Get, Logger, Post} from "@nestjs/common";
+import {Body, Controller, Get, Post} from "@nestjs/common";
 import {TextService} from "../service/text.service";
 import {TextMessageDto} from "../dto/text-message.dto";
+import {TextDto} from "../../../dto/text.dto";
 
 @Controller()
 export class TextController {
@@ -18,5 +19,10 @@ export class TextController {
     async createTextMessage(@Body() textMessageDto: TextMessageDto): Promise<{ message: string }> {
         await this.textService.createMessage(textMessageDto);
         return {message: 'Message printed'}
+    }
+
+    @Get('stats')
+    getStatistic(): Promise<TextDto[]> {
+        return this.textService.getStatisticFromTextStatistic();
     }
 }

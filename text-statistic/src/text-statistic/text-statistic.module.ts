@@ -10,7 +10,8 @@ import {Text, TextStatisticSchema} from "./schemas/text-statistic.schema";
             {
                 name: Text.name,
                 schema: TextStatisticSchema
-            }]),
+            }]
+        ),
     ],
     controllers: [TextStatisticController],
     providers: [TextStatisticService]

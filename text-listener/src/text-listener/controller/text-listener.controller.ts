@@ -10,6 +10,7 @@ export class TextListenerController {
 
     constructor(private readonly textListenerService: TextListenerService) {
     }
+
     @EventPattern(TextListenerEvent.ON_GET_TEXT)
     getText(data: TextListenerParam): void {
         this.logger.log(`Incoming request text listener from event ${TextListenerEvent.ON_GET_TEXT} with data:`);
