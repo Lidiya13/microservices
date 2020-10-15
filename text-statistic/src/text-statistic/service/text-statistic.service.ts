@@ -22,6 +22,14 @@ export class TextStatisticService {
 
     async getStats(): Promise<TextDto[]> {
         const stats = await this.textModel.find().exec();
-        return stats.map((item) => new TextDto({id: item.id, message: item.message, length: item.length}));
+        const result = stats.map((item) => new TextDto({id: item.id, message: item.message, length: item.length}));
+        for (let c = 0; c < result.length; c++) {
+            for (let i = 0; i < result.length; i++) {
+                if (result[c].message === result[i].message) {
+                    result[c].count++;
+                }
+            }
+        }
+        return result;
     }
 }

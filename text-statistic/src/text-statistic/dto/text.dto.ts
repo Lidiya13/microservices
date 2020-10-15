@@ -6,11 +6,13 @@ interface TextDtoOptions {
 
 export class TextDto {
     constructor(dto: TextDtoOptions) {
-        this.id=dto.id;
+        this.id = dto.id;
         this.message = dto.message;
         this.length = dto.length;
     }
+
     id: string;
     message: string;
     length: number;
+    count: number = 0;
 }
