@@ -14,13 +14,19 @@ export class TextStatisticController {
 
     @EventPattern(TextStatisticEvent.ON_SEND_CALCULATE_RESULT)
     async handleSendCalculateResult(data: TextStatisticParam): Promise<void> {
-        this.logger.log(`Incoming request text statistic from event ${TextStatisticEvent.ON_SEND_CALCULATE_RESULT} with data:`);
+        this.logger.log(`Incoming request text statistic from event ${TextStatisticEvent.ON_SEND_CALCULATE_RESULT}`);
         await this.textStatisticService.create(data);
     }
 
     @MessagePattern(TextStatisticEvent.ON_SEND_DATA_FROM_STAT)
     async getStats(): Promise<TextDto[]> {
-        this.logger.log(`Incoming request text statistic from event ${TextStatisticEvent.ON_SEND_DATA_FROM_STAT} with data:`);
+        this.logger.log(`Incoming request text statistic from event ${TextStatisticEvent.ON_SEND_DATA_FROM_STAT}`);
         return this.textStatisticService.getStats();
+    }
+
+    @MessagePattern(TextStatisticEvent.ON_SEARCH_WORD_IN_DB)
+    async searchMessage() {
+        this.logger.log(`Incoming request text statistic from event ${TextStatisticEvent.ON_SEARCH_WORD_IN_DB}`);
+        return this.textStatisticService.searchMessage();
     }
 }

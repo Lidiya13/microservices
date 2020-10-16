@@ -32,4 +32,11 @@ export class TextStatisticService {
         }
         return result;
     }
+
+    async searchMessage() {
+        await this.textModel.find(
+            {$message: {$search: ''}}/*,
+            {score: {$meta: "messageScore"}})
+            .sort({score: {$meta: "messageScore"}}*/);
+    }
 }

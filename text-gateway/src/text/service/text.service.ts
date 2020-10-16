@@ -3,7 +3,7 @@ import {ClientProxy} from "@nestjs/microservices";
 import {TEXT_GATEWAY_SERVICE, TEXT_LISTENER_SERVICE} from "../constant/text.constants";
 import {TextGatewayEvent} from "../constant/text-gateway.event";
 import {TextMessageDto} from "../dto/text-message.dto";
-import {TextDto} from "../../../dto/text.dto";
+import {TextDto} from "../dto/text.dto";
 
 @Injectable()
 export class TextService implements OnApplicationBootstrap {
@@ -36,5 +36,9 @@ export class TextService implements OnApplicationBootstrap {
     async getStatisticFromTextStatistic(): Promise<TextDto[]> {
         const stats = await this.statisticService.send(TextGatewayEvent.ON_SEND_DATA_FROM_STAT, {}).toPromise();
         return stats.data.map((item) => new TextDto({id: item.id, message: item.message, length: item.length}));
+    }
+
+    async getMessageAfterSearch(){
+        const stats = await this.statisticService.send(TextGatewayEvent.ON_SEARCH_WORD_IN_DB, {}).toPromise();
     }
 }
