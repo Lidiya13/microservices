@@ -34,7 +34,7 @@ export class TextStatisticService {
         return result;
     }
 
-    async searchMessage(substring: string) {
+    async searchMessage(substring: string): Promise<SearchResponseDto[]> {
         const stats = await this.textModel.find({
             message: {
                 $regex: new RegExp(`${substring}`, "i")

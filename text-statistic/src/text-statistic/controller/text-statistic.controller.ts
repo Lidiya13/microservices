@@ -4,6 +4,8 @@ import {TextStatisticEvent} from "../constant/text-statistic.event";
 import {TextStatisticParam} from "../interface/TextStatisticParam";
 import {TextStatisticService} from "../service/text-statistic.service";
 import {TextDto} from "../dto/text.dto";
+import {SearchResponseDto} from "../dto/search-response.dto";
+import {SubstringInterface} from "../interface/substring.interface";
 
 @Controller()
 export class TextStatisticController {
@@ -25,7 +27,7 @@ export class TextStatisticController {
     }
 
     @MessagePattern(TextStatisticEvent.ON_SEARCH_WORD_IN_DB)
-    async searchMessage(data: { substring: string }) {
+    async searchMessage(data: SubstringInterface): Promise<SearchResponseDto[]> {
         this.logger.log(`Incoming request text statistic from event ${TextStatisticEvent.ON_SEARCH_WORD_IN_DB}`);
         return this.textStatisticService.searchMessage(data.substring);
     }
