@@ -25,8 +25,8 @@ export class TextStatisticController {
     }
 
     @MessagePattern(TextStatisticEvent.ON_SEARCH_WORD_IN_DB)
-    async searchMessage() {
+    async searchMessage(data: { substring: string }) {
         this.logger.log(`Incoming request text statistic from event ${TextStatisticEvent.ON_SEARCH_WORD_IN_DB}`);
-        return this.textStatisticService.searchMessage();
+        return this.textStatisticService.searchMessage(data.substring);
     }
 }

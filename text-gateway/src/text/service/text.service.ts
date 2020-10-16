@@ -4,6 +4,8 @@ import {TEXT_GATEWAY_SERVICE, TEXT_LISTENER_SERVICE} from "../constant/text.cons
 import {TextGatewayEvent} from "../constant/text-gateway.event";
 import {TextMessageDto} from "../dto/text-message.dto";
 import {TextDto} from "../dto/text.dto";
+import {SearchMessageQueryDto} from "../dto/search-message-query.dto";
+import {SearchResponseDto} from "../dto/search-response.dto";
 
 @Injectable()
 export class TextService implements OnApplicationBootstrap {
@@ -35,10 +37,15 @@ export class TextService implements OnApplicationBootstrap {
 
     async getStatisticFromTextStatistic(): Promise<TextDto[]> {
         const stats = await this.statisticService.send(TextGatewayEvent.ON_SEND_DATA_FROM_STAT, {}).toPromise();
-        return stats.map((item) => new TextDto({id: item.id, message: item.message, length: item.length}));
+        const result = stats.map((item) => new TextDto({id: item.id, message: item.message, length: item.length}));
+        return result;
     }
 
-    async getMessageAfterSearch(){
-        const stats = await this.statisticService.send(TextGatewayEvent.ON_SEARCH_WORD_IN_DB, {}).toPromise();
+    async getMessageAfterSearch(messageQueryDto: SearchMessageQueryDto): Promise<SearchResponseDto[]> {
+        const stats = await this.statisticService.send(TextGatewayEvent.ON_SEARCH_WORD_IN_DB, {
+            substring: messageQueryDto.message
+        }).toPromise();
+        const result = stats.map((item) => new SearchResponseDto({id: item.id, message: item.message}));
+        return result;
     }
 }

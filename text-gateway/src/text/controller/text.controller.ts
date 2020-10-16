@@ -2,6 +2,8 @@ import {Body, Controller, Get, Post, Query} from "@nestjs/common";
 import {TextService} from "../service/text.service";
 import {TextMessageDto} from "../dto/text-message.dto";
 import {TextDto} from "../dto/text.dto";
+import {SearchMessageQueryDto} from "../dto/search-message-query.dto";
+import {SearchResponseDto} from "../dto/search-response.dto";
 
 @Controller()
 export class TextController {
@@ -27,9 +29,7 @@ export class TextController {
     }
 
     @Get('search')
-    getMessage(@Query('message') message) {
-        if (message && message === '') {
-            return this.textService.getMessageAfterSearch();
-        }
+    getMessage(@Query() messageQueryDto: SearchMessageQueryDto): Promise<SearchResponseDto[]> {
+        return this.textService.getMessageAfterSearch(messageQueryDto);
     }
 }

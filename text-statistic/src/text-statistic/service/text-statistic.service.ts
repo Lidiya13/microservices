@@ -4,6 +4,7 @@ import {InjectModel} from "@nestjs/mongoose";
 import {Text, TextDocument} from "../schemas/text-statistic.schema";
 import {TextStatisticParam} from "../interface/TextStatisticParam";
 import {TextDto} from "../dto/text.dto";
+import {SearchResponseDto} from "../dto/search-response.dto";
 
 
 @Injectable()
@@ -33,11 +34,13 @@ export class TextStatisticService {
         return result;
     }
 
-    async searchMessage() {
-        await this.textModel.find({
+    async searchMessage(substring: string) {
+        const stats = await this.textModel.find({
             message: {
-                $regex: /abc def/i
+                $regex: new RegExp(`${substring}`, "i")
             }
-        })
+        });
+        const result = stats.map((item) => new SearchResponseDto({id: item.id, message: item.message}));
+        return result;
     }
 }
