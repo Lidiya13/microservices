@@ -35,7 +35,7 @@ export class TextService implements OnApplicationBootstrap {
 
     async getStatisticFromTextStatistic(): Promise<TextDto[]> {
         const stats = await this.statisticService.send(TextGatewayEvent.ON_SEND_DATA_FROM_STAT, {}).toPromise();
-        return stats.data.map((item) => new TextDto({id: item.id, message: item.message, length: item.length}));
+        return stats.map((item) => new TextDto({id: item.id, message: item.message, length: item.length}));
     }
 
     async getMessageAfterSearch(){

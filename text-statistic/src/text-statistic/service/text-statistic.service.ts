@@ -34,9 +34,10 @@ export class TextStatisticService {
     }
 
     async searchMessage() {
-        await this.textModel.find(
-            {$message: {$search: ''}}/*,
-            {score: {$meta: "messageScore"}})
-            .sort({score: {$meta: "messageScore"}}*/);
+        await this.textModel.find({
+            message: {
+                $regex: /abc def/i
+            }
+        })
     }
 }
