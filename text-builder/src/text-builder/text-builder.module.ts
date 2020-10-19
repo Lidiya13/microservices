@@ -5,7 +5,7 @@ import {TextBuilderService} from "./service/text-builder.service";
 @Module({
     imports: [],
     controllers: [TextBuilderController],
-    providers: [TextBuilderService]
+    providers: [TextBuilderService, ]
 })
 export class TextBuilderModule {
 }
