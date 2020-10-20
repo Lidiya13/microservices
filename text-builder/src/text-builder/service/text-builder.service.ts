@@ -1,17 +1,23 @@
 import {Injectable} from "@nestjs/common";
-import {Builder} from "../builder/text.builder";
+import {TextBuilder} from "../builder/text-builder";
 
 @Injectable()
 export class TextBuilderService {
-    /*function clientCode(director: Director) {
-        const builder = new Builder();
-        director.setBuilder(builder);
-
-        director.buildUrlAddress();
-        builder.getUrl().listParts();
+    constructor(
+        private readonly builder: TextBuilder
+    ) {
     }
 
-    const director = new Director();
-    clientCode(director);*/
-
+    getUrl(): string {
+        this.builder
+            .setProtocol('https')
+            .setHost('refactoring.guru')
+            .addPath('ru')
+            .addPath('design-patterns')
+            .addPath('builder')
+            .addQueryParam({name: 'Alice'})
+            .addQueryParam({city: 'Yoshkar-Ola'})
+            .addQueryParam({age: 20});
+        return this.builder.getUrl();
+    }
 }
