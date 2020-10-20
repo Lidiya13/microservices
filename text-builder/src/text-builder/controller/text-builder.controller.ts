@@ -3,7 +3,9 @@ import {TextBuilderService} from "../service/text-builder.service";
 
 @Controller('url')
 export class TextBuilderController {
-    constructor(private readonly textBuilderService: TextBuilderService) {
+    constructor(
+        private readonly textBuilderService: TextBuilderService
+    ) {
     }
 
     @Get()
